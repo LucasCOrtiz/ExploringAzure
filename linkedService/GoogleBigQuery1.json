@@ -1,0 +1,17 @@
+{
+	"name": "GoogleBigQuery1",
+	"properties": {
+		"description": "Connector to BigQuery public datasets. ",
+		"annotations": [],
+		"type": "GoogleBigQuery",
+		"typeProperties": {
+			"project": "bigquery-public-data:noaa_lightning",
+			"requestGoogleDriveScope": false,
+			"authenticationType": "UserAuthentication"
+		},
+		"connectVia": {
+			"referenceName": "AutoResolveIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
