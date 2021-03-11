@@ -1,0 +1,16 @@
+{
+	"name": "BigQueryTest",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "GoogleBigQuery1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "GoogleBigQueryObject",
+		"schema": [],
+		"typeProperties": {
+			"dataset": "ADFTestDataset1",
+			"table": "accident_2015"
+		}
+	}
+}

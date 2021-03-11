@@ -1,0 +1,21 @@
+{
+	"name": "Accidents2015",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "BigQueryToAzureBlob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "bigquerylandingzone"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
