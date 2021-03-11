@@ -1,0 +1,70 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "Big-Query-To-Azure"
+		},
+		"GoogleBigQuery1_clientSecret": {
+			"type": "secureString",
+			"metadata": "Secure string for 'clientSecret' of 'GoogleBigQuery1'"
+		},
+		"GoogleBigQuery1_refreshToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'refreshToken' of 'GoogleBigQuery1'"
+		},
+		"BigQueryToAzureBlob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'BigQueryToAzureBlob'"
+		},
+		"GoogleBigQuery1_properties_typeProperties_clientId": {
+			"type": "string",
+			"defaultValue": "833840357254-31ohjqvvc1fm8t45s4l0kf3gq70ndc80.apps.googleusercontent.com"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "Big-Query-To-Azure_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"GoogleBigQuery1_clientSecret": {
+						"value": "[parameters('GoogleBigQuery1_clientSecret')]"
+					},
+					"GoogleBigQuery1_refreshToken": {
+						"value": "[parameters('GoogleBigQuery1_refreshToken')]"
+					},
+					"BigQueryToAzureBlob_connectionString": {
+						"value": "[parameters('BigQueryToAzureBlob_connectionString')]"
+					},
+					"GoogleBigQuery1_properties_typeProperties_clientId": {
+						"value": "[parameters('GoogleBigQuery1_properties_typeProperties_clientId')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
